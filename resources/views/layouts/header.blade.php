@@ -12,6 +12,8 @@
 
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/preloader/xpress-logo2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
     <!-- CSS here -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -19,7 +21,7 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.css">
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/font-awesome-pro.css">
+    {{-- <link rel="stylesheet" href="assets/css/font-awesome-pro.css"> --}}
     <link rel="stylesheet" href="assets/css/flaticon_shofy.css">
     <link rel="stylesheet" href="assets/css/spacing.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -441,70 +443,51 @@
                               </a>
                            </div> --}}
                                 <div class="tp-header-login d-none d-lg-block">
-                                    @auth
-                                        <div class="d-flex align-items-center">
-                                            <div class="tp-header-login-icon">
-                                                <span>
-                                                    <svg width="17" height="21" viewBox="0 0 17 21"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle cx="8.57894" cy="5.77803" r="4.77803"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                            <div class="tp-header-login-content d-none d-xl-block">
-                                                <span>Hello, {{ Auth::user()->name }}</span>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <a href="{{ route('register') }}" class="d-flex align-items-center">
-                                            <div class="tp-header-login-icon">
-                                                <span>
-                                                    <svg width="17" height="21" viewBox="0 0 17 21"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle cx="8.57894" cy="5.77803" r="4.77803"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z"
-                                                            stroke="currentColor" stroke-width="1.5"
-                                                            stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </span>
-                                            </div>
-                                            <div class="tp-header-login-content d-none d-xl-block">
-                                                <span>Hello, Sign In</span>
-                                                <h5 class="tp-header-login-title">Your Account</h5>
-                                            </div>
-                                        </a>
-                                    @endauth
-                                </div>
+    @auth
+        <div class="dropdown d-flex align-items-center">
+            <div class="tp-header-login-icon me-2">
+                <span>
+                    <!-- Your existing user SVG icon -->
+                    <svg width="17" height="21" viewBox="0 0 17 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8.57894" cy="5.77803" r="4.77803" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.00002 17.2014C0.998732 16.8655 1.07385 16.5337 1.2197 16.2311C1.67736 15.3158 2.96798 14.8307 4.03892 14.611C4.81128 14.4462 5.59431 14.336 6.38217 14.2815C7.84084 14.1533 9.30793 14.1533 10.7666 14.2815C11.5544 14.3367 12.3374 14.4468 13.1099 14.611C14.1808 14.8307 15.4714 15.27 15.9291 16.2311C16.2224 16.8479 16.2224 17.564 15.9291 18.1808C15.4714 19.1419 14.1808 19.5812 13.1099 19.7918C12.3384 19.9634 11.5551 20.0766 10.7666 20.1304C9.57937 20.2311 8.38659 20.2494 7.19681 20.1854C6.92221 20.1854 6.65677 20.1854 6.38217 20.1304C5.59663 20.0773 4.81632 19.9641 4.04807 19.7918C2.96798 19.5812 1.68652 19.1419 1.2197 18.1808C1.0746 17.8747 0.999552 17.5401 1.00002 17.2014Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
 
-                                <div class="tp-header-action d-flex align-items-center ml-50">
-                                    <div class="tp-header-action-item d-none d-lg-block">
-                                        <a href="compare.html" class="tp-header-action-btn">
-                                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M14.8396 17.3319V3.71411" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M19.1556 13L15.0778 17.0967L11 13" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M4.91115 1.00056V14.6183" stroke="currentColor"
-                                                    stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path d="M0.833496 5.09667L4.91127 1L8.98905 5.09667"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                    </div>
+            <div class="tp-header-login-content d-none d-xl-block dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>Hello, {{ Auth::user()->name }}</span>
+            </div>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="dropdown-item">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    @else
+        <div class="d-flex align-items-center dropdown">
+            <div class="tp-header-login-icon me-2">
+                <!-- Same SVG icon for guest -->
+            </div>
+            <div class="tp-header-login-content d-none d-xl-block dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <span>Hello, Sign In</span>
+                {{-- <h5 class="tp-header-login-title " >Your Account</h5> --}}
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+            </ul>
+        </div>
+    @endauth
+</div>
+
+
+                                
                                     <div class="tp-header-action-item d-none d-lg-block">
                                         <a href="wishlist.html" class="tp-header-action-btn">
                                             <svg width="22" height="20" viewBox="0 0 22 20" fill="none"

@@ -11,9 +11,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [ProductController::class, 'newArrivals'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -25,7 +25,12 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/laptops', [ProductController::class, 'index'])->name('products.index');
+Route::get('/', [ProductController::class, 'newArrivals'])->name('home');
+
+// Products listing page
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+
 
 Route::post('/add-to-cart/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -40,3 +45,4 @@ Route::get('/wishlist/remove/{id}', [WishlistController::class, 'remove'])->name
 //     session()->forget('cart');  // This clears the 'cart' session key
 //     return 'Cart session cleared!';
 // });
+

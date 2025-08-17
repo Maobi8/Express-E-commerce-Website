@@ -1,4 +1,4 @@
-{{-- @extends('layouts.header')
+ @extends('layouts.header')
 @section("content")
 <section class="tp-product-arrival-area pb-55"> 
             <div class="container">
@@ -12,10 +12,10 @@
                            </svg>
                         </h3>
                      </div>
-                  </div> --}}
+                  </div> 
 
 
-                  {{-- <div class="col-xl-7 col-sm-6">
+                  <div class="col-xl-7 col-sm-6">
                      <div class="tp-product-arrival-more-wrapper d-flex justify-content-end">
                         <div class="tp-product-arrival-arrow tp-swiper-arrow mb-40 text-end tp-product-arrival-border">      
                            <button type="button" class="tp-arrival-slider-button-prev">
@@ -30,11 +30,11 @@
                            </button>
                         </div>
                      </div>
-                  </div> --}}
-               {{-- </div> --}}
+                  </div> 
+               </div> 
 
                
-               {{-- <div class="row">
+                <div class="row">
                   <div class="col-xl-12">
                      <div class="tp-product-arrival-slider fix">
                         <div class="tp-product-arrival-active swiper-container">
@@ -193,8 +193,17 @@
                         </div>
                       </div>
                   </div>
-               </div> --}}
-            {{-- </div>
+               </div> 
+             </div>
          </section> 
-         
-@endsection --}}
+         <script>
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('input', function(e) {
+            if(e.target.name === 'quantity') {
+                const hiddenInput = this.querySelector('input[name="quantity"][type="hidden"]');
+                if(hiddenInput) hiddenInput.value = e.target.value;
+            }
+        });
+    });
+</script>
+@endsection 

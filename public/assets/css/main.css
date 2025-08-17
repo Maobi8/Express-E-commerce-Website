@@ -15627,6 +15627,13 @@ div.tp-author-info-avater img {
   box-shadow: 0px 1px 3px rgba(1, 15, 28, 0.14);
   border-radius: 4px;
 }
+.tp-product-action-btn i,
+.tp-product-action-btn svg {
+    color: #333;          /* Make the icon visible */
+    font-size: 16px;      /* Adjust size */
+    vertical-align: middle;
+}
+
 .tp-product-action-btn {
   position: relative;
   display: inline-block;
